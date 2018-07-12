@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Search Form</title>
+	</head>
+	<body>
+		<!-- Todo: Generate a search form that filters a preloaded list of names. -->
+		<h1>Nikoleav Search</h1>
+		Search Restaurant: <input data-bind="value: query, valueUpdate: 'keyup'">
+		<ul data-bind="foreach: search">
+			<!-- Generate the list template here -->
+			<li data-bind="html: restaurantName"></li>
+		</ul>
+
+		<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+		<script src="js/simple_search_vm.js"></script>
+	</body>
+</html>

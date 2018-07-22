@@ -1,6 +1,39 @@
-// Class to represent a row or model in the search
-function googlModel(initial, values) {
-    var self = this;   
+// Google Map Functions
+// Global map variable of the city of mykoliv ukraine
+var mykolaiv_map;
+// Initialize the google map for the city of mykolaiv
+function mykolaiv_map_init() {
+    // Set the mykolaiv city coordinates could be changed to test fuctionality on other cities.
+    mykolaiv_coordinates = {lat: 46.9750, lng: 31.9946};
+
+    // Create the  mykolaiv map property object
+    mykolaiv_map_properties = {zoom: 16, center: mykolaiv_coordinates};
+
+    // Create a map object with mykolaiv properties set as per google example with w3 flavor
+    mykolaiv_map = new google.maps.Map(document.getElementById("mykolaivMap"), mykolaiv_map_properties);
+ 
+    // Request for the place information below
+    const request = {
+        location: mykolaiv_coordinates,
+        radius: '300',
+        type: ['restaurant']
+    };
+
+    // The place object 
+    const service = new google.maps.places.PlacesService(mykolaiv_map); //
+    service.nearbySearch(request, callback);
+}
+
+// The callback function for the map
+// For the result to the place search
+function callback(results, status) {
+   //mykolaiv_place_results;
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    // Testing access to this global varriable
+    const mykolaiv_place_results = results;
+    // Allow knockout handle the rest including creating a marker
+    ko.applyBindings(new RestaurantsViewModel(mykolaiv_place_results));
+  }
 }
 
 // Overall viewmodel for this screen, along with initial state data
@@ -36,4 +69,4 @@ function RestaurantsViewModel() {
     })
 }
 
-ko.applyBindings(new RestaurantsViewModel());
+//ko.applyBindings(new RestaurantsViewModel());

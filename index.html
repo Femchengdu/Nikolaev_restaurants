@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Simple Search Form</title>
+		<title>Mykolaiv Restaurant Locator</title>
+		<link rel="stylesheet" href="css/map_styles.css">
 	</head>
 	<body>
-		<!-- Todo: Generate a search form that filters a preloaded list of names. -->
-		<h1>Nikoleav Search</h1>
-		Search Restaurant: <input data-bind="value: query, valueUpdate: 'keyup'">
-		<ul data-bind="foreach: search">
-			<!-- Generate the list template here -->
-			<li data-bind="html: restaurantName"></li>
-		</ul>
-
+		<!-- Map goes here -->
+		<section id="mykolaivMap"></section>
+		<section id="search">
+			<!-- Todo: Generate a search form that filters a preloaded list of names. -->
+			<h1>Nikoleav Search</h1>
+			Search Restaurant: <input data-bind="value: query, valueUpdate: 'keyup'">
+			<ul data-bind="foreach: search">
+				<!-- Generate the list template here -->
+				<li data-bind="html: restaurantName"></li>
+			</ul>
+		</section>
+		<!-- Load the script ascyncronously wait until the page loads why ajax?-->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjosfI27Mt8NNlBf1nfS_Vj-dAvneKM6c&libraries=places&callback=mykolaiv_map_init"></script>
 		<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
 		<script src="js/simple_search_vm.js"></script>
 	</body>

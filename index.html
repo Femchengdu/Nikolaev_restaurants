@@ -13,12 +13,17 @@
 			Search Restaurant: <input data-bind="value: query, valueUpdate: 'keyup'">
 			<ul data-bind="foreach: search">
 				<!-- Generate the list template here -->
-				<li data-bind="html: restaurantName"></li>
+				<li data-bind="html: restaurantName, event: {click: showAddress}"></li>
 			</ul>
 		</section>
 		<!-- Load the script ascyncronously wait until the page loads why ajax?-->
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjosfI27Mt8NNlBf1nfS_Vj-dAvneKM6c&libraries=places&callback=mykolaiv_map_init"></script>
 		<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
 		<script src="js/simple_search_vm.js"></script>
+
+		<!-- Loading the first script asyncronously causes problems with the H map object-->
+		<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+	  	<script async defer src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+	  	<script async defer src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

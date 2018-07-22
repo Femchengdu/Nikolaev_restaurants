@@ -41,7 +41,13 @@ function RestaurantsViewModel(mykolaiv_place_search) {
     var self = this;
     // Hard coded place IDs from google api search
     //https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
-    const default_place_ids = ['ChIJzxVF4XbJxUARU8AH4aHVwUg','ChIJuQ5QYnrJxUARA-vHRHr89nI','ChIJgcaWH3TJxUARoC1qNDVkvrI','ChIJ_6xAfHrJxUARkrglsUJzaLs','ChIJQYBusGXJxUARjdS3dIc52Lo'];
+    const default_place_ids = [
+    'ChIJzxVF4XbJxUARU8AH4aHVwUg',
+    'ChIJuQ5QYnrJxUARA-vHRHr89nI',
+    'ChIJgcaWH3TJxUARoC1qNDVkvrI',
+    'ChIJ_6xAfHrJxUARkrglsUJzaLs',
+    'ChIJQYBusGXJxUARjdS3dIc52Lo'
+    ];
 
     const mykolaiv_results = mykolaiv_place_search.filter(function(mykolaiv_resaurant){
     return default_place_ids.includes(mykolaiv_resaurant.place_id);

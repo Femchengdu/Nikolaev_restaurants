@@ -7,7 +7,7 @@ function mykolaiv_map_init() {
     mykolaiv_coordinates = {lat: 46.9750, lng: 31.9946};
 
     // Create the  mykolaiv map property object
-    mykolaiv_map_properties = {zoom: 16, center: mykolaiv_coordinates};
+    mykolaiv_map_properties = {zoom: 16, center: mykolaiv_coordinates, disableDefaultUI: true};
 
     // Create a map object with mykolaiv properties set as per google example with w3 flavor
     mykolaiv_map = new google.maps.Map(document.getElementById("mykolaivMap"), mykolaiv_map_properties);

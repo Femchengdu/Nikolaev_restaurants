@@ -4,27 +4,35 @@
 		<title>Mykolaiv Restaurant Locator</title>
 		<link rel="stylesheet" href="css/map_styles.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/toggle_filter.js"></script>
 	</head>
 	<body>
-		<!-- Map goes here -->
-		<section id="mykolaivMap"></section>
-		<section id="search">
-			<!-- Todo: Generate a search form that filters a preloaded list of names. -->
-			<h1>Nikoleav Search</h1>
-			Search Restaurant: <input data-bind="value: query, valueUpdate: 'keyup'">
-			<ul data-bind="foreach: search">
-				<!-- Generate the list template here -->
-				<li data-bind="html: restaurantName, event: {click: showAddress}"></li>
-			</ul>
-		</section>
-		<!-- Load the script ascyncronously wait until the page loads why ajax?-->
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjosfI27Mt8NNlBf1nfS_Vj-dAvneKM6c&libraries=places&callback=mykolaiv_map_init"></script>
-		<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
-		<script src="js/simple_search_vm.js"></script>
+		<span onclick="openNav()">&#9776; Filter</span>
+		<main class="row">	
+			<section class="left" id="myLeft">
+				<!-- Todo: Generate a search form that filters a preloaded list of names. -->
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<h3>Nikolaiv Restaurants</h3>
+				
+				<input id="mySearch" placeholder="Filter.." data-bind="value: query, valueUpdate: 'keyup'">
+				<ul data-bind="foreach: search" id="myMenu">
+					<!-- Generate the list template here -->
+					<li data-bind="html: restaurantName, event: {click: showAddress}"></li>
+				</ul>
+			</section>
 
-		<!-- Loading the first script asyncronously causes problems with the H map object-->
-		<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-	  	<script async defer src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
-	  	<script async defer src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
+			<!-- Map goes here -->
+			<section id="mykolaivMap" class="right" id="myRight"></section>
+			
+			<!-- Load the script ascyncronously wait until the page loads why ajax?-->
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjosfI27Mt8NNlBf1nfS_Vj-dAvneKM6c&libraries=places&callback=mykolaiv_map_init"></script>
+			<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+			<script src="js/simple_search_vm.js"></script>
+
+			<!-- Loading the first script asyncronously causes problems with the H map object-->
+			<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+		  	<script async defer src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+		  	<script async defer src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
+	  </main>
 	</body>
 </html>

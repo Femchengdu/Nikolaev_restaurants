@@ -7,13 +7,12 @@
 		<script src="js/toggle_filter.js"></script>
 	</head>
 	<body>
-		<span onclick="openNav()">&#9776; Filter</span>
+		<span onclick="openNav()">&#9776; Nikolaiv Restaurants</span>
 		<main class="row">	
 			<section class="left" id="myLeft">
 				<!-- Todo: Generate a search form that filters a preloaded list of names. -->
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				<h3>Nikolaiv Restaurants</h3>
-				
+				<h3>Favorites</h3>
 				<input id="mySearch" placeholder="Filter.." data-bind="value: query, valueUpdate: 'keyup'">
 				<ul data-bind="foreach: search" id="myMenu">
 					<!-- Generate the list template here -->
@@ -25,7 +24,7 @@
 			<section id="mykolaivMap" class="right" id="myRight"></section>
 			
 			<!-- Load the script ascyncronously wait until the page loads why ajax?-->
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjosfI27Mt8NNlBf1nfS_Vj-dAvneKM6c&libraries=places&callback=mykolaiv_map_init"></script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjosfI27Mt8NNlBf1nfS_Vj-dAvneKM6c&libraries=places&callback=mykolaiv_map_init" onerror="connection_error()"></script>
 			<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
 			<script src="js/simple_search_vm.js"></script>
 

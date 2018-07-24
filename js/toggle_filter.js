@@ -7,3 +7,7 @@ function openNav() {
 function closeNav() {
     document.getElementById("myLeft").style.width = "0%";
 }
+
+function connection_error() {
+	alert('Failed to load map! Check your internet connection and try again.');
+}
